@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glorious Jewels</title>
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:black;
+    font-family:'Oleo Script', cursive;
+    color:white;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+h1{
+    font-size:30px;
+    color:#D2042D;
+    margin:0;
+}
+.header img{
+    width:90px;
+}
+
+.welcome{
+    text-align:center;
+    max-width:700px;
+    margin:15px auto;
+    padding:0 15px;
+}
+
+/* SHOP NOW SPARKLE */
+.sparkle{
+    font-size:44px;
+    text-align:center;
+    color:#D2042D;
+    text-decoration:underline;
+    animation:sparkle 1.5s infinite alternate;
+}
+@keyframes sparkle{
+    from{ text-shadow:0 0 5px white; }
+    to{ text-shadow:0 0 25px #ff4d6d; }
+}
+
+/* PRODUCT GRID */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:30px;
+}
+
+.product{
+    background:#111;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* ALL IMAGES SAME SIZE */
+.product img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border:4px solid #D2042D;
+    border-radius:8px;
+}
+
+button{
+    background:#D2042D;
+    color:white;
+    border:none;
+    padding:8px;
+    margin-top:8px;
+    cursor:pointer;
+    border-radius:6px;
+    font-family:'Oleo Script', cursive;
+}
+
+select, input{
+    width:100%;
+    padding:6px;
+    margin-top:6px;
+    border-radius:4px;
+    border:none;
+}
+
+.section-title{
+    text-align:center;
+    color:#D2042D;
+    margin-top:40px;
+}
+
+/* CART */
+.cart{
+    background:#111;
+    margin:30px;
+    padding:20px;
+    border:2px solid #D2042D;
+}
+.cart h3{
+    color:#D2042D;
+}
+
+/* FORM */
+.form-section{
+    background:#111;
+    margin:30px;
+    padding:20px;
+    border:2px solid #D2042D;
+}
+.form-section h3{
+    color:#D2042D;
+}
+
+@media(max-width:900px){
+    .products{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+    .products{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Glorious Jewels</h1>
+<img src="https://i.pinimg.com/1200x/f6/5b/66/f65b665496bf86643bdfee17b2b6263f.jpg">
+</div>
+
+<p class="welcome">
+Welcome to Glorious Jewels!<br>
+Step into a world of sparkle, shine, and statement pieces that turn heads.
+Because you deserve nothing less than glorious.
+</p>
+
+<h2 class="sparkle">SHOP NOW</h2>
+
+<div class="products">
+
+<!-- Strawberry Keychain -->
+<div class="product">
+<img src="https://i.pinimg.com/1200x/ab/fb/0c/abfb0cb9a312ab221308d4a431e82a59.jpg">
+<p>$350</p>
+<select id="strawberryColor">
+<option>Pink</option>
+<option>Red</option>
+</select>
+<button onclick="addToCart('Strawberry Keychain - '+document.getElementById('strawberryColor').value,350)">Add to Cart</button>
+</div>
+
+<!-- Pink Cherry -->
+<div class="product">
+<img src="https://i.pinimg.com/1200x/00/bb/b6/00bbb60a429ac1c6bbe0e8c10b7850ba.jpg">
+<p>$300</p>
+<button onclick="addToCart('Pink Cherry Keychain',300)">Add to Cart</button>
+</div>
+
+<!-- Red Cherry -->
+<div class="product">
+<img src="https://i.pinimg.com/1200x/db/2a/8e/db2a8e0243a0d5d7e20bc2d3d4ca3939.jpg">
+<p>$400</p>
+<button onclick="addToCart('Red Cherry Keychain',400)">Add to Cart</button>
+</div>
+
+<!-- Pearl -->
+<div class="product">
+<img src="https://i.pinimg.com/1200x/fc/c8/2d/fcc82d06590cc68be827e85586609e62.jpg">
+<p>$300</p>
+<button onclick="addToCart('Pearl Keychain',300)">Add to Cart</button>
+</div>
+
+<!-- Rings -->
+<div class="product">
+<img src="https://i.pinimg.com/736x/c0/f1/50/c0f150e90e6bb3ff69df108dbbfba4bd.jpg">
+<p>Select Ring Option</p>
+<select onchange="addRing(this.value)">
+<option value="">Choose</option>
+<option value="350">1 Ring - $350</option>
+<option value="1500">5 Rings - $1500</option>
+<option value="3000">10 Rings - $3000</option>
+</select>
+</div>
+
+<!-- Beaded -->
+<div class="product">
+<img src="https://i.pinimg.com/736x/43/91/54/4391547ef97e7d5664b8b7dc89439de9.jpg">
+<p>$300</p>
+<button onclick="addToCart('Beaded Bracelet',300)">Add to Cart</button>
+</div>
+
+<!-- Matching -->
+<div class="product">
+<img src="https://i.pinimg.com/1200x/87/96/32/87963224b320564a0cd9165328e8d887.jpg">
+<p>$900</p>
+<button onclick="addToCart('Matching Beaded Bracelets',900)">Add to Cart</button>
+</div>
+
+</div>
+
+<h2 class="section-title">Charm Bracelets - $1000</h2>
+<div class="products">
+<div class="product">
+<img src="https://i.pinimg.com/1200x/c8/8a/a2/c88aa2c167030389116c7d2c6d43913b.jpg">
+<button onclick="addToCart('Charm Bracelet',1000)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/b2/39/68/b2396885db9e54f580544958540c6e58.jpg">
+<button onclick="addToCart('Charm Bracelet',1000)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/ad/08/ac/ad08aceda4aa550d9759a1c53adde1e1.jpg">
+<button onclick="addToCart('Charm Bracelet',1000)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/b2/a8/e7/b2a8e765f04da3d8d86be5e86fb2de63.jpg">
+<button onclick="addToCart('Charm Bracelet',1000)">Add to Cart</button>
+</div>
+</div>
+
+<h2 class="section-title">Arm Cuffs - $500</h2>
+<div class="products">
+<div class="product">
+<img src="https://i.pinimg.com/1200x/6f/87/ff/6f87ff8a6ce5a1440ad9caf20f402841.jpg">
+<button onclick="addToCart('Arm Cuff',500)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/ef/ca/2d/efca2da998168c493a1629c4ef38a144.jpg">
+<button onclick="addToCart('Arm Cuff',500)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/c4/bc/b2/c4bcb260485d7204aca6041061ec98c2.jpg">
+<button onclick="addToCart('Arm Cuff',500)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://i.pinimg.com/1200x/b0/ce/88/b0ce880feff9a645acae537b61964c02.jpg">
+<button onclick="addToCart('Arm Cuff',500)">Add to Cart</button>
+</div>
+</div>
+
+<div class="cart">
+<h3>Cart Preview</h3>
+<div id="cartItems"></div>
+<h3>Subtotal: $<span id="subtotal">0</span></h3>
+<h3>Delivery Fee: $<span id="delivery">0</span></h3>
+<h2>Total: $<span id="total">0</span></h2>
+</div>
+
+<div class="form-section">
+<h3>Customer Information</h3>
+<input type="text" placeholder="First & Last Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="text" placeholder="Delivery / Pickup Area" required>
+<input type="number" placeholder="Enter Delivery Fee" onchange="setDelivery(this.value)">
+<button>Submit Order</button>
+</div>
+
+<script>
+let subtotal=0;
+let delivery=0;
+
+function updateTotals(){
+document.getElementById("subtotal").innerText=subtotal;
+document.getElementById("delivery").innerText=delivery;
+document.getElementById("total").innerText=subtotal+delivery;
+}
+
+function addToCart(name,price){
+subtotal+=price;
+document.getElementById("cartItems").innerHTML+=name+" - $"+price+"<br>";
+updateTotals();
+}
+
+function addRing(price){
+if(price!=""){
+subtotal+=parseInt(price);
+document.getElementById("cartItems").innerHTML+="Ring Option - $"+price+"<br>";
+updateTotals();
+}
+}
+
+function setDelivery(value){
+delivery=parseInt(value)||0;
+updateTotals();
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
